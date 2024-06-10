@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Previsão do Tempo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            color: #000;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            margin-bottom: 100px;
+            display: flex; /* Utilizar flexbox para layout */
+            flex-direction: row; /* Alterado para alinhar os elementos lado a lado */
+            justify-content: space-between; /* Espaço entre os elementos */
+            align-items: flex-start; /* Alinhamento no topo */
+        }
+        .cities {
+            width: 45%; /* Reduzir a largura das cidades para acomodar a imagem */
+            margin-right: 20px; /* Espaçamento à direita */
+        }
+        .cities h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+            text-align: center; /* Centralizar o título */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        img {
+            max-width: 45%; /* Reduzir a largura da imagem */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 60px; /* Aumentar a margem superior da imagem */
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            border-top: 1px solid #ccc;
+            left: 0;
+            position: fixed;
+            bottom: 0;
+        }
+        .api-button {
+            position: absolute;
+            top: 20px;
+            right: 20px; /* Colocar o botão ao lado direito da imagem */
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    {% load static %}
+</head>
+<body>
+    <div class="container">
+        <div class="cities">
+            <h2>Cidades</h2>
+            <ul>
+                {% for cidade_id, nome_cidade in mapa_cidades_id.items %}
+                    <li><a href="{% url 'meteo:tempo_5_dias' cidade_id=cidade_id %}">{{ nome_cidade }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <a href="{% url 'meteo:pagina_api' %}" class="api-button">API de Meteorologia</a> <!-- Movido o botão para cima -->
+        <img src="{% static 'meteo/portugal.jpeg' %}" alt="Mapa de Portugal">
+    </div>
+    <footer>
+        <p>2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

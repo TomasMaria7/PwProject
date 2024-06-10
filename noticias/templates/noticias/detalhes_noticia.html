@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícia</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            padding-bottom: 70px;
+            position: relative;
+        }
+
+        h1 {
+            color: #ff6600;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 30px;
+        }
+
+        p {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #ff6600;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .button {
+            position: absolute;
+            top: 20px;
+            background-color: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button-editar-noticia {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-editar-noticia:hover {
+            background-color: #e65c00;
+        }
+
+        .button-editar-comentario {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 7px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+            position: absolute;
+            bottom: 33px;
+            right: 100px;
+        }
+
+        .button-editar-comentario:hover {
+            background-color: #e65c00;
+        }
+
+        .button-adicionar {
+            margin-top: 20px;
+            background-color: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            top: -13px;
+            left: 0px;
+        }
+
+        footer {
+            background-color: #ff6600;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #ccc;
+            left: 0;
+            right: 0;
+        }
+
+        .comment {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .comment p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+
+        .button-remover {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-remover:hover {
+            background-color: #c0392b;
+        }
+
+        .news-text {
+            text-align: justify;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            margin: 0 200px;
+        }
+
+
+        .auth-links {
+            position: absolute;
+            top: 20%;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-link {
+            color: darkred;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+@media only screen and (max-width: 768px) {
+    .auth-links {
+        position: static;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    .login,
+    .logout {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .auth-link {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    body {
+        padding: 20px;
+        padding-bottom: 180px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .button,
+    .button-editar-noticia,
+    .button-adicionar,
+    .button-editar-comentario {
+        position: static;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    li.comment {
+        margin-bottom: 20px;
+    }
+
+    footer {
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #ff6600;
+        color: white;
+        text-align: center;
+        border-top: 1px solid #ccc;
+    }
+
+
+    .news-text {
+        margin: 0;
+        padding: 0 10px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .auth-links {
+        position: static;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    .login,
+    .logout {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .auth-link {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    body {
+        padding: 20px;
+        padding-bottom: 180px; /
+    }
+
+    h1 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .button,
+    .button-editar-noticia,
+    .button-adicionar,
+    .button-editar-comentario {
+        position: static;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    li.comment {
+        margin-bottom: 20px;
+    }
+
+    footer {
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #ff6600;
+        color: white;
+        text-align: center;
+        border-top: 1px solid #ccc;
+    }
+
+
+    .news-text {
+        margin: 0;
+        padding: 0 10px;
+        font-size: 12px;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <h1>{{ noticia.titulo }}</h1>
+    {% if user.is_authenticated %}
+        <a href="{% url 'noticias:editar_noticia' noticia.nome %}" class="button button-editar-noticia">Editar Notícia</a>
+    {% endif %}
+
+    <p>Autor: <a href="{% url 'noticias:detalhes_autor' noticia.autor.nome %}">{{ noticia.autor.nome }}</a></p>
+    <p>Data: {{ noticia.data_postagem }}</p>
+    <img src="{{ noticia.foto.url }}" alt="Capa da Notícia" width="400">
+    <p class="news-text">{{ noticia.texto }}</p>
+
+    <h2>Comentários:</h2>
+    {% if user.is_authenticated %}
+        <a href="{% url 'noticias:adicionar_comentario' noticia.nome %}" class="button button-adicionar">Adicionar Comentário</a>
+    {% endif %}
+    <ul>
+        {% for comentario in comentarios %}
+        <li class="comment">
+            <p>{{ comentario.texto }}</p>
+            <p style="color: #777;">{{ comentario.autor }}</p>
+             <p style="color: #777; font-size: 12px;">Publicado em: {{ comentario.data }}</p>
+            {% if user.is_authenticated %}
+                <form action="{% url 'noticias:remover_comentario' comentario.id %}" method="post">
+                    {% csrf_token %}
+                    <button class="button-remover" type="submit">Remover</button>
+                </form>
+                <a href="{% url 'noticias:editar_comentario' comentario.id %}" class="button-editar-comentario">Editar</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'noticias:pagina_inicial' %}" class="button">Página Inicial</a>
+
+    <div class="auth-links">
+        {% if user.is_authenticated %}
+            <div class="login">
+                <p>Logado como {{ user.username }}</p>
+            </div>
+            <div class="logout">
+                <p><a href="{% url 'noticias:logout' %}" class="auth-link">Logout</a></p>
+            </div>
+        {% else %}
+            <div class="login">
+                <div class="register">
+                    <p><a href="{% url 'noticias:registro' %}" class="auth-link">Registre-se</a> se ainda não tiver uma conta</p>
+                </div>
+                <p><a href="{% url 'noticias:login' %}" class="auth-link">Login</a> para continuar</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <footer>
+        <p style="color: white;">2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

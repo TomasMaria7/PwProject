@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ projeto.nome }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            margin-bottom: 500px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .projeto-details {
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .projeto-details img {
+            max-width: 30%;
+            height: auto;
+        }
+
+        .linguagem {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .azul {
+            color: blue;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 0px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .auth-menu {
+            position: absolute;
+            top: 20px;
+            right: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-link {
+            color: #007bff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        @media only screen and (max-width: 768px) {
+    .auth-menu {
+        position: static;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .login,
+    .logout {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .auth-link {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    .container {
+        max-width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .projeto-details img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .projeto-details {
+        padding: 15px;
+    }
+
+    p {
+        font-size: 0.9em;
+        margin-bottom: 5px;
+    }
+
+    ul {
+        font-size: 0.9em;
+        margin-bottom: 5px;
+    }
+
+    .button {
+        font-size: 0.9em;
+        padding: 8px 16px;
+        margin-top: 10px;
+        margin-right: 5px;
+    }
+
+    footer {
+        padding: 8px 0;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .auth-menu {
+        position: static;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .container {
+        max-width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+
+    .projeto-details img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .projeto-details {
+        padding: 15px;
+    }
+
+    p {
+        font-size: 0.8em;
+        margin-bottom: 5px;
+    }
+
+    ul {
+        font-size: 0.8em;
+        margin-bottom: 5px;
+    }
+
+    .button {
+        font-size: 0.8em;
+        padding: 6px 12px;
+        margin-top: 10px;
+        margin-right: 5px;
+    }
+
+    footer {
+        padding: 5px 0;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="auth-menu">
+        {% if user.is_authenticated %}
+            <div class="login">
+                <p>Logado como {{ user.username }}</p>
+            </div>
+            <div class="logout">
+                <p><a href="{% url 'curso:logout' %}" class="auth-link">Logout</a></p>
+            </div>
+        {% else %}
+            <div class="login">
+                <div class="register">
+                    <p><a href="{% url 'curso:registro' %}" class="auth-link">Registre-se</a> se ainda não tiver uma conta</p>
+                </div>
+                <p><a href="{% url 'curso:login' %}" class="auth-link">Login</a> para continuar</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="container">
+        <h1>{{ projeto.nome }}</h1>
+        <div class="projeto-details">
+            <p><strong>Descrição:</strong> {{ projeto.descricao }}</p>
+            <p><strong>Conceitos:</strong> {{ projeto.conceitos }}</p>
+            <p><strong>Tecnologias:</strong> {{ projeto.tecnologias }}</p>
+
+            <h2>Disciplina: <span class="azul">{{ projeto.disciplina.nome }}</span></h2>
+
+            <h2>Linguagens de Programação:</h2>
+            <ul class="linguagem">
+                {% for linguagem in projeto.linguagens.all %}
+                    <li>{{ linguagem.nome }}</li>
+                {% endfor %}
+            </ul>
+
+            {% if projeto.foto %}
+                <p><strong>Imagem do Projeto:</strong></p>
+                <img src="{{ projeto.foto.url }}" alt="Imagem do Projeto">
+            {% endif %}
+
+            {% if projeto.video %}
+                <p><strong>Link Video do Youtube:</strong> <a href="{{ projeto.video }}">{{ projeto.video }}</a></p>
+            {% endif %}
+
+            {% if projeto.gitLink %}
+                <p><strong>Link Repositório GitHub:</strong> <a href="{{ projeto.gitLink }}">{{ projeto.gitLink }}</a></p>
+            {% endif %}
+        </div>
+        <a href="{% url 'curso:lista_cursos' %}" class="button">Página Inicial</a>
+        <a href="{% url 'curso:detalhes_disciplina' disciplina_nome=projeto.disciplina.nome %}" class="button">{{ projeto.disciplina.nome }}</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'curso:editar_projeto' disciplina_nome=projeto.disciplina.nome projeto_nome=projeto.nome %}" class="button">Editar Projeto</a>
+        {% endif %}
+    </div>
+    <footer>
+        <p>2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

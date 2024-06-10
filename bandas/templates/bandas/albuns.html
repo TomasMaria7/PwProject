@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Álbuns</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            color: black;
+            margin-top: 50px;
+            position: relative;
+            margin-bottom: 100px;
+        }
+
+        .title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: red;
+        }
+
+        .musicas-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .musicas-table th,
+        .musicas-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .musicas-table-container {
+            padding: 50px;
+        }
+
+
+        .musicas-table th {
+            background-color: #f2f2f2;
+        }
+
+        .remove-button {
+            background-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 3px 8px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .remove-button:hover {
+            background-color: red;
+            color: white;
+        }
+
+        .album-nome {
+            background-color: red;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .album-nome:hover {
+            background-color: darkred;
+        }
+
+        footer {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #ccc;
+        }
+        .auth-menu {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .auth-link {
+            color: darkred;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .menu-item {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin-right: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #f8f8f8;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .menu-item:hover {
+            background-color: #e0e0e0;
+            color: darkred;
+        }
+
+        .menu-item.active {
+            background-color: red;
+            color: white;
+        }
+
+        .menu-item:last-child {
+            margin-right: 0;
+        }
+
+        .menu-content {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .menu-content h2 {
+            font-size: 1.5em;
+            color: red;
+        }
+
+        @media only screen and (max-width: 768px) {
+        .musicas-table-container {
+        padding: 20px;
+        }
+
+        .auth-menu {
+        position: static;
+        margin-top: 20px;
+         }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .musicas-table-container {
+            padding: 10px;
+        }
+
+        .auth-menu {
+            flex-direction: column;
+            align-items: center;
+            position: static;
+            margin-top: 20px;
+        }
+
+        .auth-link {
+        margin: 10px 0;
+        }
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="menu">
+            <a href="{% url 'bandas:bandas' %}" class="menu-item">Bandas</a>
+            <a href="{% url 'bandas:albuns' %}" class="menu-item active">Álbuns</a>
+            <a href="{% url 'bandas:musicas' %}" class="menu-item">Músicas</a>
+        </div>
+        <div class="menu-content">
+            <h1 class="title">Álbuns</h1>
+            <div class="musicas-table-container">
+                <table class="musicas-table">
+                    <tbody>
+                        {% for album in albuns %}
+                        <tr>
+                            <td><a href="{% url 'bandas:album_detalhes' album.nome %}" class="album-nome">{{ album.nome }}</a></td>
+                            <td>
+                                {% if user.is_authenticated %}
+                                <form action="{% url 'bandas:remover_album' banda_nome=album.banda.nome album_nome=album.nome %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="remove-button">Remover</button>
+                                </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="auth-menu">
+            {% if user.is_authenticated %}
+            <div class="login">
+                <p>Logado como {{ user.username }}</p>
+                <div class="logout">
+                    <p><a href="{% url 'bandas:logout' %}" class="auth-link">Logout</a></p>
+                </div>
+            </div>
+            {% else %}
+            <div class="register">
+                <p><a href="{% url 'bandas:registro' %}" class="auth-link">Registre-se</a> se ainda não tiver uma conta</p>
+            </div>
+            <div class="login">
+                <p><a href="{% url 'bandas:login' %}" class="auth-link">Login</a> para continuar</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <footer>
+        <p>2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+</

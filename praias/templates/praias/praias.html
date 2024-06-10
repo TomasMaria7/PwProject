@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Praias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fde6b3; 
+            margin: 0;
+            padding: 20px 20px 20px 0;
+        }
+        h2 {
+            color: #ff6f00;
+            font-size: 28px; 
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .praia-link {
+            color: #ff6f00; 
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+        .praia-link:hover {
+            color: #ffab40;
+        }
+        footer {
+            background-color: #ff6f00;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    {% for regiao, praias in praias_por_regiao.items %}
+    <h2>{{ regiao }}</h2>
+    <ul>
+        {% for praia in praias %}
+        <li>
+            <strong><a href="{% url 'praias:praia' praia_nome=praia.nome %}" class="praia-link">{{ praia.nome }}</a></strong> -
+            Serviços:
+            {% for servico in praia.servicos.all %}
+                {{ servico.nome }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+    <footer>
+        <p>2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

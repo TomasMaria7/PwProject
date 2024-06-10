@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomás Maria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        .container h2 {
+            font-size: 1.5em;
+            color: #777;
+            margin-top: 0;
+        }
+
+        .container p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .container img {
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #darkModeToggle {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #dateTimeDisplay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.2em;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'portfolio:pagina_inicial' %}">Home</a></li>
+                <li><a href="{% url 'portfolio:sobre' %}">Sobre</a></li>
+                <li><a href="{% url 'portfolio:projetos' %}">Projetos</a></li>
+                <li><a href="{% url 'portfolio:contato' %}">Contatos</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'portfolio:logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'portfolio:login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                    <li><a href="{% url 'portfolio:registro' %}"><i class="fas fa-sign-out-alt"></i> Registre-se</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <button id="darkModeToggle">Dark Mode</button>
+    <div class="container">
+        <h1>Tomás Maria</h1>
+        <h2>Desenvolvedor de Software</h2>
+        <div id="dateTimeDisplay"></div>
+        <img src="/static/portfolio/cara.jpg" alt="Minha Foto" width="200" height="200">
+        <p>Olá! Eu sou Tomás Maria, um desenvolvedor de Software apaixonado por criar soluções inovadoras. Tenho experiência em várias tecnologias e estou sempre à procura de aprender mais e encontrar novos projetos. Bem-vindo ao meu portfólio online!</p>
+    </div>
+    <footer>
+        &copy; 2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.
+    </footer>
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+
+        function updateDateTime() {
+            const dateTimeDisplay = document.getElementById('dateTimeDisplay');
+            const now = new Date();
+            const formattedDateTime = now.toLocaleString('pt-BR', { hour12: false });
+            dateTimeDisplay.textContent = formattedDateTime;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
+</body>
+</html>

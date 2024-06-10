@@ -1,0 +1,302 @@
+[
+    {
+        "banda": "Led Zeppelin",
+        "titulo": "Led Zeppelin IV",
+        "ano_lancamento": 1971,
+        "musicas": [
+            {"titulo": "Stairway to Heaven", "duracao": 8.02},
+            {"titulo": "Rock and Roll", "duracao": 3.40},
+            {"titulo": "Black Dog", "duracao": 4.55}
+        ]
+    },
+    {
+        "banda": "Deep Purple",
+        "titulo": "Machine Head",
+        "ano_lancamento": 1972,
+        "musicas": [
+            {"titulo": "Highway Star", "duracao": 6.05},
+            {"titulo": "Smoke on the Water", "duracao": 5.40},
+            {"titulo": "Space Truckin'", "duracao": 4.31}
+        ]
+    },
+    {
+        "banda": "The Beatles",
+        "titulo": "Abbey Road",
+        "ano_lancamento": 1969,
+        "musicas": [
+            {"titulo": "Come Together", "duracao": 4.20},
+            {"titulo": "Something", "duracao": 3.03},
+            {"titulo": "Here Comes the Sun", "duracao": 3.05}
+        ]
+    },
+    {
+        "banda": "Pink Floyd",
+        "titulo": "The Dark Side of the Moon",
+        "ano_lancamento": 1973,
+        "musicas": [
+            {"titulo": "Speak to Me/Breathe", "duracao": 3.58},
+            {"titulo": "Time", "duracao": 7.06},
+            {"titulo": "Money", "duracao": 6.22}
+        ]
+    },
+    {
+        "banda": "Queen",
+        "titulo": "A Night at the Opera",
+        "ano_lancamento": 1975,
+        "musicas": [
+            {"titulo": "Bohemian Rhapsody", "duracao": 5.55},
+            {"titulo": "You're My Best Friend", "duracao": 2.52},
+            {"titulo": "Love of My Life", "duracao": 3.38}
+        ]
+    },
+    {
+        "banda": "The Rolling Stones",
+        "titulo": "Sticky Fingers",
+        "ano_lancamento": 1971,
+        "musicas": [
+            {"titulo": "Brown Sugar", "duracao": 3.49},
+            {"titulo": "Wild Horses", "duracao": 5.42},
+            {"titulo": "Can't You Hear Me Knocking", "duracao": 7.14}
+        ]
+    },
+    {
+        "banda": "AC DC",
+        "titulo": "Back in Black",
+        "ano_lancamento": 1980,
+        "musicas": [
+            {"titulo": "Hells Bells", "duracao": 5.10},
+            {"titulo": "Shoot to Thrill", "duracao": 5.17},
+            {"titulo": "Back in Black", "duracao": 4.15}
+        ]
+    },
+    {
+        "banda": "Guns N Roses",
+        "titulo": "Appetite for Destruction",
+        "ano_lancamento": 1987,
+        "musicas": [
+            {"titulo": "Welcome to the Jungle", "duracao": 4.31},
+            {"titulo": "Sweet Child o' Mine", "duracao": 5.56},
+            {"titulo": "Paradise City", "duracao": 6.46}
+        ]
+    },
+    {
+        "banda": "Nirvana",
+        "titulo": "Nevermind",
+        "ano_lancamento": 1991,
+        "musicas": [
+            {"titulo": "Smells Like Teen Spirit", "duracao": 5.01},
+            {"titulo": "Come as You Are", "duracao": 3.38},
+            {"titulo": "Lithium", "duracao": 4.17}
+        ]
+    },
+    {
+        "banda": "Metallica",
+        "titulo": "Master of Puppets",
+        "ano_lancamento": 1986,
+        "musicas": [
+            {"titulo": "Battery", "duracao": 5.12},
+            {"titulo": "Master of Puppets", "duracao": 8.36},
+            {"titulo": "Welcome Home (Sanitarium)", "duracao": 6.27}
+        ]
+    },
+    {
+        "banda": "The Who",
+        "titulo": "Who's Next",
+        "ano_lancamento": 1971,
+        "musicas": [
+            {"titulo": "Baba O'Riley", "duracao": 5.08},
+            {"titulo": "Behind Blue Eyes", "duracao": 3.42},
+            {"titulo": "Won't Get Fooled Again", "duracao": 8.33}
+        ]
+    },
+    {
+        "banda": "Led Zeppelin",
+        "titulo": "Led Zeppelin II",
+        "ano_lancamento": 1969,
+        "musicas": [
+            {"titulo": "Whole Lotta Love", "duracao": 5.34},
+            {"titulo": "Heartbreaker", "duracao": 4.14},
+            {"titulo": "Ramble On", "duracao": 4.24}
+        ]
+    },
+    {
+        "banda": "Pink Floyd",
+        "titulo": "Wish You Were Here",
+        "ano_lancamento": 1975,
+        "musicas": [
+            {"titulo": "Shine On You Crazy Diamond", "duracao": 13.40},
+            {"titulo": "Wish You Were Here", "duracao": 5.34},
+            {"titulo": "Have a Cigar", "duracao": 5.08}
+        ]
+    },
+    {
+        "banda": "Queen",
+        "titulo": "The Game",
+        "ano_lancamento": 1980,
+        "musicas": [
+            {"titulo": "Another One Bites the Dust", "duracao": 3.36},
+            {"titulo": "Crazy Little Thing Called Love", "duracao": 2.44},
+            {"titulo": "Play the Game", "duracao": 3.30}
+        ]
+    },
+    {
+        "banda": "The Rolling Stones",
+        "titulo": "Let It Bleed",
+        "ano_lancamento": 1969,
+        "musicas": [
+            {"titulo": "Gimme Shelter", "duracao": 4.31},
+            {"titulo": "You Can't Always Get What You Want", "duracao": 7.28},
+            {"titulo": "Midnight Rambler", "duracao": 6.52}
+        ]
+    },
+    {
+        "banda": "AC DC",
+        "titulo": "Highway to Hell",
+        "ano_lancamento": 1979,
+        "musicas": [
+            {"titulo": "Highway to Hell", "duracao": 3.28},
+            {"titulo": "Girls Got Rhythm", "duracao": 3.23},
+            {"titulo": "Touch Too Much", "duracao": 4.27}
+        ]
+    },
+    {
+        "banda": "Guns N Roses",
+        "titulo": "Use Your Illusion I",
+        "ano_lancamento": 1991,
+        "musicas": [
+            {"titulo": "November Rain", "duracao": 8.57},
+            {"titulo": "Don't Cry", "duracao": 4.45},
+            {"titulo": "Live and Let Die", "duracao": 3.04}
+        ]
+    },
+    {
+        "banda": "Nirvana",
+        "titulo": "In Utero",
+        "ano_lancamento": 1993,
+        "musicas": [
+            {"titulo": "Heart-Shaped Box", "duracao": 4.39},
+            {"titulo": "Rape Me", "duracao": 2.50},
+            {"titulo": "All Apologies", "duracao": 3.50}
+        ]
+    },
+    {
+        "banda": "Metallica",
+        "titulo": "...And Justice for All",
+        "ano_lancamento": 1988,
+        "musicas": [
+            {"titulo": "Blackened", "duracao": 6.41},
+            {"titulo": "One", "duracao": 7.26},
+            {"titulo": "Harvester of Sorrow", "duracao": 5.42}
+        ]
+    },
+    {
+        "banda": "The Who",
+        "titulo": "Tommy",
+        "ano_lancamento": 1969,
+        "musicas": [
+            {"titulo": "Overture", "duracao": 5.21},
+            {"titulo": "Pinball Wizard", "duracao": 3.02},
+            {"titulo": "I'm Free", "duracao": 2.40}
+        ]
+    },
+    {
+        "banda": "Led Zeppelin",
+        "titulo": "Led Zeppelin III",
+        "ano_lancamento": 1970,
+        "musicas": [
+            {"titulo": "Immigrant Song", "duracao": 2.26},
+            {"titulo": "Since I've Been Loving You", "duracao": 7.23},
+            {"titulo": "Gallows Pole", "duracao": 4.57}
+        ]
+    },
+    {
+    "banda": "Black Sabbath",
+    "titulo": "Paranoid",
+    "ano_lancamento": 1970,
+    "musicas": [
+        {"titulo": "War Pigs", "duracao": 7.55},
+        {"titulo": "Paranoid", "duracao": 2.48},
+        {"titulo": "Iron Man", "duracao": 5.56}
+    ]
+    },
+    {
+        "banda": "The Doors",
+        "titulo": "The Doors",
+        "ano_lancamento": 1967,
+        "musicas": [
+            {"titulo": "Break On Through (To the Other Side)", "duracao": 2.29},
+            {"titulo": "Light My Fire", "duracao": 7.06},
+            {"titulo": "The End", "duracao": 11.42}
+        ]
+    },
+    {
+        "banda": "U2",
+        "titulo": "The Joshua Tree",
+        "ano_lancamento": 1987,
+        "musicas": [
+            {"titulo": "Where the Streets Have No Name", "duracao": 5.38},
+            {"titulo": "With or Without You", "duracao": 4.56},
+            {"titulo": "I Still Haven't Found What I'm Looking For", "duracao": 4.37}
+        ]
+    },
+    {
+        "banda": "Radiohead",
+        "titulo": "OK Computer",
+        "ano_lancamento": 1997,
+        "musicas": [
+            {"titulo": "Airbag", "duracao": 4.44},
+            {"titulo": "Paranoid Android", "duracao": 6.23},
+            {"titulo": "Karma Police", "duracao": 4.21}
+        ]
+    },
+    {
+        "banda": "Pearl Jam",
+        "titulo": "Ten",
+        "ano_lancamento": 1991,
+        "musicas": [
+            {"titulo": "Once", "duracao": 3.51},
+            {"titulo": "Even Flow", "duracao": 4.53},
+            {"titulo": "Alive", "duracao": 5.41}
+        ]
+    },
+    {
+        "banda": "Red Hot Chili Peppers",
+        "titulo": "Blood Sugar Sex Magik",
+        "ano_lancamento": 1991,
+        "musicas": [
+        {"titulo": "The Power of Equality", "duracao": 4.03},
+        {"titulo": "Under the Bridge", "duracao": 4.24},
+        {"titulo": "Give It Away", "duracao": 4.43}
+        ]
+    },
+    {
+        "banda": "The Beach Boys",
+        "titulo": "Pet Sounds",
+        "ano_lancamento": 1966,
+        "musicas": [
+            {"titulo": "Wouldn't It Be Nice", "duracao": 2.25},
+            {"titulo": "God Only Knows", "duracao": 2.50},
+            {"titulo": "Sloop John B", "duracao": 2.57}
+        ]
+    },
+    {
+        "banda": "Ramones",
+        "titulo": "Ramones",
+        "ano_lancamento": 1976,
+        "musicas": [
+            {"titulo": "Blitzkrieg Bop", "duracao": 2.12},
+            {"titulo": "Beat on the Brat", "duracao": 2.30},
+            {"titulo": "Judy Is a Punk", "duracao": 1.32}
+        ]
+    },
+    {
+        "banda": "Green Day",
+        "titulo": "Dookie",
+        "ano_lancamento": 1994,
+        "musicas": [
+            {"titulo": "Burnout", "duracao": 2.07},
+            {"titulo": "Basket Case", "duracao": 3.01},
+            {"titulo": "When I Come Around", "duracao": 2.58}
+        ]
+    }
+]

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatos - Tomás Maria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        .container p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .contact-links {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .contact-links li {
+            margin-bottom: 10px;
+        }
+
+        .contact-links li a {
+            display: inline-block;
+            background-color: #777;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .contact-links li a:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #darkModeToggle {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #dateTimeDisplay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.2em;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="dateTimeDisplay"></div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'portfolio:pagina_inicial' %}">Home</a></li>
+                <li><a href="{% url 'portfolio:sobre' %}">Sobre</a></li>
+                <li><a href="{% url 'portfolio:projetos' %}">Projetos</a></li>
+                <li><a href="{% url 'portfolio:contato' %}">Contatos</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'portfolio:logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'portfolio:login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                    <li><a href="{% url 'portfolio:registro' %}"><i class="fas fa-sign-out-alt"></i> Registre-se</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <button id="darkModeToggle">Dark Mode</button>
+    <div class="container">
+        <h1>Contatos</h1>
+        <p>Entre em contato comigo através dos seguintes meios:</p>
+        <ul class="contact-links">
+            <li><a href="mailto:tomasdamasomaria@gmail.com">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/tomás-maria-7b367a268/" target="_blank">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/tomasdamaso.11/" target="_blank">Instagram</a></li>
+        </ul>
+    </div>
+    <footer>
+        &copy; 2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+
+        function updateDateTime() {
+            const dateTimeDisplay = document.getElementById('dateTimeDisplay');
+            const now = new Date();
+            const formattedDateTime = now.toLocaleString('pt-BR', { hour12: false });
+            dateTimeDisplay.textContent = formattedDateTime;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
+</body>
+</html>

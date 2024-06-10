@@ -1,0 +1,254 @@
+{
+  "curso": {
+    "nome": "Informática de Gestão",
+    "apresentacao": "Apresentação do curso de Informática de Gestão.",
+    "objetivos": "Objetivos do curso de Informática de Gestão.",
+    "competencias": "Competências adquiridas no curso de Informática de Gestão."
+  },
+  "areas_cientificas": [
+    {"nome": "Gestão de Sistemas de Informação"},
+    {"nome": "Gestão Empresarial"},
+    {"nome": "Contabilidade"},
+    {"nome": "Gestão de Projetos"},
+    {"nome": "Marketing Digital"},
+    {"nome": "Economia"},
+    {"nome": "Estatística"},
+    {"nome": "Gestão da Qualidade"},
+    {"nome": "Sistemas de Informação Empresarial"},
+    {"nome": "Direito Informático"}
+  ],
+  "disciplinas": [
+    {
+      "nome": "Programação para Gestão",
+      "ano": 1,
+      "semestre": 1,
+      "ects": 6,
+      "code": 2345,
+      "area_cientifica": "Gestão de Sistemas de Informação",
+      "projetos": [
+        {
+          "nome": "Projeto de Programação para Gestão",
+          "descricao": "Descrição do projeto de Programação para Gestão.",
+          "conceitos": "Conceitos aplicados no projeto de Programação para Gestão.",
+          "tecnologias": "Tecnologias utilizadas no projeto de Programação para Gestão.",
+          "foto": "link_para_imagem",
+          "video": "link_para_video",
+          "gitLink": "link_para_repositorio_github",
+          "linguagens": [{"nome": "Python"}, {"nome": "SQL"}]
+        }
+      ]
+    },
+    {
+      "nome": "Gestão de Projetos",
+      "ano": 1,
+      "semestre": 2,
+      "ects": 6,
+      "code": 6789,
+      "area_cientifica": "Gestão de Projetos",
+      "projetos": [
+        {
+          "nome": "Projeto de Gestão de Projetos",
+          "descricao": "Descrição do projeto de Gestão de Projetos.",
+          "conceitos": "Conceitos aplicados no projeto de Gestão de Projetos.",
+          "tecnologias": "Tecnologias utilizadas no projeto de Gestão de Projetos.",
+          "foto": "link_para_imagem",
+          "video": "link_para_video",
+          "gitLink": "link_para_repositorio_github",
+          "linguagens": [{"nome": "Python"}]
+        }
+      ]
+    },
+    {
+      "nome": "Contabilidade Financeira",
+      "ano": 2,
+      "semestre": 1,
+      "ects": 6,
+      "code": 9101,
+      "area_cientifica": "Contabilidade",
+      "projetos": [
+        {
+          "nome": "Projeto de Contabilidade Financeira",
+          "descricao": "Descrição do projeto de Contabilidade Financeira.",
+          "conceitos": "Conceitos aplicados no projeto de Contabilidade Financeira.",
+          "tecnologias": "Tecnologias utilizadas no projeto de Contabilidade Financeira.",
+          "foto": "link_para_imagem",
+          "video": "link_para_video",
+          "gitLink": "link_para_repositorio_github",
+          "linguagens": [{"nome": "SQL"}]
+        }
+      ]
+    },
+    {
+      "nome": "Gestão de Marketing",
+      "ano": 2,
+      "semestre": 1,
+      "ects": 6,
+      "code": 1121,
+      "area_cientifica": "Marketing Digital",
+      "projetos": [
+        {
+          "nome": "Projeto de Gestão de Marketing",
+          "descricao": "Descrição do projeto de Gestão de Marketing.",
+          "conceitos": "Conceitos aplicados no projeto de Gestão de Marketing.",
+          "tecnologias": "Tecnologias utilizadas no projeto de Gestão de Marketing.",
+          "foto": "link_para_imagem",
+          "video": "link_para_video",
+          "gitLink": "link_para_repositorio_github",
+          "linguagens": [{"nome": "Python"}]
+        }
+      ]
+    },
+    {
+      "nome": "Economia Empresarial",
+      "ano": 2,
+      "semestre": 2,
+      "ects": 6,
+      "code": 1314,
+      "area_cientifica": "Economia",
+      "projetos": [
+        {
+          "nome": "Projeto de Economia Empresarial",
+          "descricao": "Descrição do projeto de Economia Empresarial.",
+          "conceitos": "Conceitos aplicados no projeto de Economia Empresarial.",
+          "tecnologias": "Tecnologias utilizadas no projeto de Economia Empresarial.",
+          "foto": "link_para_imagem",
+          "video": "link_para_video",
+          "gitLink": "link_para_repositorio_github",
+          "linguagens": [{"nome": "Python"}]
+        }
+      ]
+    },
+    {
+      "nome": "Estatística Aplicada",
+      "ano": 3,
+      "semestre": 1,
+      "ects": 6,
+      "code": 1516,
+      "area_cientifica": "Estatística",
+      "projetos": [
+        {
+          "nome": "Projeto de Estatística Aplicada",
+          "descricao": "Descrição do projeto de Estatística Aplicada.",
+          "conceitos": "Conceitos aplicados no projeto de Estatística Aplicada.",
+          "tecnologias": "Tecnologias utilizadas no projeto de Estatística Aplicada.",
+          "foto": "link_para_imagem",
+          "video": "link_para_video",
+          "gitLink": "link_para_repositorio_github",
+          "linguagens": [{"nome": "Python"}]
+        }
+      ]
+    },
+    {
+      "nome": "Gestão da Qualidade",
+      "ano": 3,
+      "semestre": 2,
+      "ects": 6,
+      "code": 1718,
+      "area_cientifica": "Gestão da Qualidade",
+      "projetos": [
+        {
+          "nome": "Projeto de Gestão da Qualidade",
+          "descricao": "Descrição do projeto de Gestão da Qualidade.",
+          "conceitos": "Conceitos aplicados no projeto de Gestão da Qualidade.",
+          "tecnologias": "Tecnologias utilizadas no projeto de Gestão da Qualidade.",
+          "foto": "link_para_imagem",
+          "video": "link_para_video",
+          "gitLink": "link_para_repositorio_github",
+          "linguagens": [{"nome": "Python"}]
+        }
+      ]
+    },
+    {
+      "nome": "Sistemas de Informação Empresarial",
+      "ano": 4,
+      "semestre": 1,
+      "ects": 6,
+      "code": 1920,
+      "area_cientifica": "Sistemas de Informação Empresarial",
+      "projetos": [
+        {
+          "nome": "Projeto de Sistemas de Informação Empresarial",
+          "descricao": "Descrição do projeto de Sistemas de Informação Empresarial.",
+          "conceitos": "Conceitos aplicados no projeto de Sistemas de Informação Empresarial.",
+          "tecnologias": "Tecnologias utilizadas no projeto de Sistemas de Informação Empresarial.",
+          "foto": "link_para_imagem",
+          "video": "link_para_video",
+          "gitLink": "link_para_repositorio_github",
+          "linguagens": [{"nome": "Python"}]
+        }
+      ]
+    },
+    {
+      "nome": "Direito Informático",
+      "ano": 4,
+      "semestre": 2,
+      "ects": 6,
+      "code": 2122,
+      "area_cientifica": "Direito Informático",
+      "projetos": [
+        {
+          "nome": "Projeto de Direito Informático",
+          "descricao": "Descrição do projeto de Direito Informático.",
+          "conceitos": "Conceitos aplicados no projeto de Direito Informático.",
+          "tecnologias": "Tecnologias utilizadas no projeto de Direito Informático.",
+          "foto": "link_para_imagem",
+          "video": "link_para_video",
+          "gitLink": "link_para_repositorio_github",
+          "linguagens": [{"nome": "Python"}]
+        }
+      ]
+    },
+    {
+      "nome": "Projeto Final",
+      "ano": 5,
+      "semestre": 1,
+      "ects": 12,
+      "code": 2324,
+      "area_cientifica": "Gestão de Sistemas de Informação",
+      "projetos": [
+        {
+          "nome": "Projeto Final de Curso",
+          "descricao": "Descrição do projeto final de curso.",
+          "conceitos": "Conceitos aplicados no projeto final de curso.",
+          "tecnologias": "Tecnologias utilizadas no projeto final de curso.",
+          "foto": "link_para_imagem",
+          "video": "link_para_video",
+          "gitLink": "link_para_repositorio_github",
+          "linguagens": [{"nome": "Python"}, {"nome": "SQL"}]
+        }
+      ]
+    }
+  ],
+  "docentes": [
+    {
+      "nome": "Ana Martins",
+      "disciplinas": ["Programação para Gestão", "Gestão de Projetos"]
+    },
+    {
+      "nome": "Rui Ferreira",
+      "disciplinas": ["Contabilidade Financeira", "Economia Empresarial"]
+    },
+    {
+      "nome": "Marta Carvalho",
+      "disciplinas": ["Gestão de Marketing", "Estatística Aplicada"]
+    },
+    {
+      "nome": "Paulo Santos",
+      "disciplinas": ["Gestão da Qualidade", "Sistemas de Informação Empresarial"]
+    },
+    {
+      "nome": "Carla Sousa",
+      "disciplinas": ["Direito Informático", "Projeto Final"]
+    }
+  ],
+  "linguagens_programacao": [
+    {"nome": "Python"},
+    {"nome": "SQL"},
+    {"nome": "Java"},
+    {"nome": "HTML"},
+    {"nome": "CSS"},
+    {"nome": "JavaScript"},
+    {"nome": "C#"},
+    {"nome": "R"}
+  ]
+}

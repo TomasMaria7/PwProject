@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            padding-bottom: 100px;
+            position: relative;
+        }
+
+        h1 {
+            color: #ff6600;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ff6600;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+        }
+
+        li:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #ff6600;
+            text-decoration: underline;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto 30px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .title {
+            color: #333;
+            margin-bottom: 100px;
+        }
+
+        .date {
+            margin-top: 5px;
+            color: #777;
+        }
+
+        footer {
+            background-color: #ff6600;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #ccc;
+            left: 0;
+            right: 0;
+        }
+
+        .add-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .remove-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #ff3333;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .auth-menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-link {
+            color: #ff6600;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        @media only screen and (max-width: 768px) {
+    .auth-menu {
+        position: static;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .login,
+    .logout {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .auth-link {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    body {
+        padding: 20px;
+        padding-bottom: 180px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .remove-button,
+    .add-button {
+        position: static;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        background-color: #fff;
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 2px solid #ff6600;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+        text-align: center;
+    }
+
+    li:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .title {
+        font-size: 1.2em;
+    }
+
+    .date {
+        font-size: 0.8em;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    footer {
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #ff6600;
+        color: white;
+        text-align: center;
+        border-top: 1px solid #ccc;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .auth-menu {
+        position: static;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .login,
+    .logout {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .auth-link {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    body {
+        padding: 20px;
+        padding-bottom: 180px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .remove-button,
+    .add-button {
+        position: static;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        background-color: #fff;
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 2px solid #ff6600;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+        text-align: center;
+    }
+
+    li:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .title {
+        font-size: 1em;
+    }
+
+    .date {
+        font-size: 0.8em;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    footer {
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #ff6600;
+        color: white;
+        text-align: center;
+        border-top: 1px solid #ccc;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="auth-menu">
+        {% if user.is_authenticated %}
+            <div class="login">
+                <p>Logado como {{ user.username }}</p>
+            </div>
+            <div class="logout">
+                <p><a href="{% url 'noticias:logout' %}" class="auth-link">Logout</a></p>
+            </div>
+        {% else %}
+            <div class="login">
+                <div class="register">
+                    <p><a href="{% url 'noticias:registro' %}" class="auth-link">Registre-se</a> se ainda não tiver uma conta</p>
+                </div>
+                <p><a href="{% url 'noticias:login' %}" class="auth-link">Login</a> para continuar</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <h1>Último Lance</h1>
+    <ul>
+    {% for noticia in noticias %}
+        <li>
+            <a href="{% url 'noticias:detalhes_noticia' noticia.nome %}" class="title">{{ noticia.titulo }}</a><br>
+            <img src="{{ noticia.foto.url }}" alt="Capa da Notícia" width="200"><br>
+            <p class="date">{{ noticia.data_postagem }}</p>
+            {% if user.is_authenticated %}
+                <a href="{% url 'noticias:remover_noticia' noticia.id %}" class="remove-button">Remover</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+    {% if user.is_authenticated %}
+        <a href="{% url 'noticias:adicionar_noticia' %}" class="add-button">Adicionar Notícia</a>
+    {% endif %}
+    <footer>
+        <p>2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

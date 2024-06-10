@@ -1,0 +1,102 @@
+[
+    {
+        "nome": "Led Zeppelin",
+        "nacionalidade": "Inglaterra",
+        "ano_criacao": 1968
+    },
+    {
+        "nome": "The Beatles",
+        "nacionalidade": "Inglaterra",
+        "ano_criacao": 1960
+    },
+    {
+        "nome": "Pink Floyd",
+        "nacionalidade": "Inglaterra",
+        "ano_criacao": 1965
+    },
+    {
+        "nome": "Queen",
+        "nacionalidade": "Inglaterra",
+        "ano_criacao": 1970
+    },
+    {
+        "nome": "The Rolling Stones",
+        "nacionalidade": "Inglaterra",
+        "ano_criacao": 1962
+    },
+    {
+        "nome": "AC DC",
+        "nacionalidade": "Austrália",
+        "ano_criacao": 1973
+    },
+    {
+        "nome": "Guns N Roses",
+        "nacionalidade": "Estados Unidos",
+        "ano_criacao": 1985
+    },
+    {
+        "nome": "Nirvana",
+        "nacionalidade": "Estados Unidos",
+        "ano_criacao": 1987
+    },
+    {
+        "nome": "Metallica",
+        "nacionalidade": "Estados Unidos",
+        "ano_criacao": 1981
+    },
+    {
+        "nome": "The Who",
+        "nacionalidade": "Inglaterra",
+        "ano_criacao": 1964
+    },
+    {
+        "nome": "Deep Purple",
+        "nacionalidade": "Inglaterra",
+        "ano_criacao": 1968
+    },
+    {
+        "nome": "Black Sabbath",
+        "nacionalidade": "Inglaterra",
+        "ano_criacao": 1968
+    },
+    {
+        "nome": "The Doors",
+        "nacionalidade": "Estados Unidos",
+        "ano_criacao": 1965
+    },
+    {
+        "nome": "U2",
+        "nacionalidade": "Irlanda",
+        "ano_criacao": 1976
+    },
+    {
+        "nome": "Radiohead",
+        "nacionalidade": "Inglaterra",
+        "ano_criacao": 1985
+    },
+    {
+        "nome": "Pearl Jam",
+        "nacionalidade": "Estados Unidos",
+        "ano_criacao": 1990
+    },
+    {
+        "nome": "Red Hot Chili Peppers",
+        "nacionalidade": "Estados Unidos",
+        "ano_criacao": 1983
+    },
+    {
+        "nome": "The Beach Boys",
+        "nacionalidade": "Estados Unidos",
+        "ano_criacao": 1961
+    },
+    {
+        "nome": "Ramones",
+        "nacionalidade": "Estados Unidos",
+        "ano_criacao": 1974
+    },
+    {
+        "nome": "Green Day",
+        "nacionalidade": "Estados Unidos",
+        "ano_criacao": 1986
+    }
+]

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bandas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            color: black;
+            margin-top: 50px;
+            position: relative;
+            margin-bottom: 100px;
+        }
+
+        .title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: red;
+            display: inline-block;
+        }
+
+        .add-button, .remove-button {
+            background-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 1em;
+            margin-left: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .add-button:hover, .remove-button:hover {
+            background-color: red;
+            color: white;
+        }
+
+        .bandas-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .banda-item {
+            margin: 10px;
+            flex: 0 0 calc(20% - 20px);
+            max-width: calc(20% - 20px);
+            position: relative;
+        }
+
+        .banda-link {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+            display: block;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
+            position: relative;
+        }
+
+        .banda-link:hover {
+            color: red;
+        }
+
+        .remove-button {
+            background-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 3px 8px;
+            position: absolute;
+            bottom: 10px;
+            width: calc(50% - 15px);
+            text-align: center;
+            font-size: 0.8em;
+            transition: background-color 0.3s, color 0.3s;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .remove-button:hover {
+            background-color: red;
+            color: white;
+        }
+
+        .auth-menu {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .auth-link {
+            color: darkred;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #ccc;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .menu-item {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin-right: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #f8f8f8;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .menu-item:hover {
+            background-color: #e0e0e0;
+            color: darkred;
+        }
+
+        .menu-item.active {
+            background-color: red;
+            color: white;
+        }
+
+        .menu-item:last-child {
+            margin-right: 0;
+        }
+
+        .menu-content {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .menu-content h2 {
+            font-size: 1.5em;
+            color: red;
+        }
+
+
+        @media only screen and (max-width: 768px) {
+            .banda-item {
+            flex: 0 0 calc(50% - 20px);
+            max-width: calc(50% - 20px);
+            }
+
+            .auth-menu {
+            position: static;
+            margin-top: 20px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .banda-item {
+            flex: 0 0 calc(100% - 20px);
+            max-width: calc(100% - 20px);
+            }
+
+            .auth-menu {
+            flex-direction: column;
+            align-items: center;
+            }
+
+            .auth-link {
+            margin: 10px 0;
+            }
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <a href="{% url 'bandas:bandas' %}" class="menu-item active">Bandas</a>
+            <a href="{% url 'bandas:albuns' %}" class="menu-item">Álbuns</a>
+            <a href="{% url 'bandas:musicas' %}" class="menu-item">Músicas</a>
+        </div>
+        <div class="menu-content">
+        <h1 class="title">Bandas</h1>
+        {% if user.is_authenticated %}
+            <a href="{% url 'bandas:nova_banda' %}" class="add-button">Adicionar Banda</a>
+        {% endif %}
+
+        <div class="auth-menu">
+            {% if user.is_authenticated %}
+                <div class="login">
+                    <p>Logado como {{ user.username }}</p>
+                </div>
+                <div class="logout">
+                    <p><a href="{% url 'bandas:logout' %}" class="auth-link">Logout</a></p>
+                </div>
+            {% else %}
+                <div class="login">
+                    <div class="register">
+                        <p><a href="{% url 'bandas:registro' %}" class="auth-link">Registre-se</a> se ainda não tiver uma conta</p>
+                    </div>
+                    <p><a href="{% url 'bandas:login' %}" class="auth-link">Login</a> para continuar</p>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="bandas-menu">
+            {% for banda in bandas %}
+                <div class="banda-item">
+                    <a href="{% url 'bandas:banda_detalhes' banda_nome=banda.nome|slugify %}" class="banda-link">
+                        <h2 class="banda-nome">{{ banda.nome }}</h2>
+                    </a>
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'bandas:remover_banda' banda_nome=banda.nome|slugify %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="banda_id" value="{{ banda.id }}">
+                            <button type="submit" class="remove-button">Remover</button>
+                        </form>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+    <footer>
+        <p>2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

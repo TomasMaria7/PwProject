@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Tomás Maria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 800px;
+            margin-bottom: 50px;
+            flex: 1;
+        }
+
+        .container h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        .container p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        #darkModeToggle {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #dateTimeDisplay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.2em;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div id="dateTimeDisplay"></div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'portfolio:pagina_inicial' %}">Home</a></li>
+                    <li><a href="{% url 'portfolio:sobre' %}">Sobre</a></li>
+                    <li><a href="{% url 'portfolio:projetos' %}">Projetos</a></li>
+                    <li><a href="{% url 'portfolio:contato' %}">Contatos</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'portfolio:logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'portfolio:login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                        <li><a href="{% url 'portfolio:registro' %}"><i class="fas fa-sign-out-alt"></i> Registre-se</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
+        <button id="darkModeToggle">Dark Mode</button>
+        <div class="container">
+            <h1>Olá! Meu nome é Tomás Maria, e estou muito empolgado em compartilhar um pouco sobre mim.</h1>
+
+            <h2>Interesses</h2>
+            <p>Sou apaixonado por diversas áreas, desde tecnologia até arte. Gosto de explorar novas ideias, aprender sobre diferentes culturas e descobrir como posso contribuir positivamente para o mundo ao meu redor.</p>
+
+            <h2>Aptidões e Competências</h2>
+            <h3>Habilidades Técnicas</h3>
+            <p>Domínio em [listar suas habilidades técnicas, como programação em determinadas linguagens, design gráfico, etc.]</p>
+            <p>Experiência em [listar ferramentas ou softwares específicos que você domina]</p>
+
+            <h3>Habilidades Interpessoais</h3>
+            <p>Excelente habilidade de comunicação verbal e escrita</p>
+            <p>Trabalho bem em equipe e posso liderar quando necessário</p>
+            <p>Capacidade de resolver problemas de forma criativa e eficaz</p>
+
+            <h2>Educação</h2>
+            <p>12º Ano, Escola Secundária Eça de Queiroz, 2022</p>
+            <p>A Tirar Licenciatura, Universidade Lusófona, 2022 - Dia de Hoje</p>
+        </div>
+        <footer>
+            &copy; 2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.
+        </footer>
+    </div>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+
+        function updateDateTime() {
+            const dateTimeDisplay = document.getElementById('dateTimeDisplay');
+            const now = new Date();
+            const formattedDateTime = now.toLocaleString('pt-BR', { hour12: false });
+            dateTimeDisplay.textContent = formattedDateTime;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
+</body>
+</html>

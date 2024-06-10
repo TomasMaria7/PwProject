@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ album.nome }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            color: black;
+            margin-top: 50px;
+            margin-bottom: 100px;
+            margin-bottom: 100px;
+        }
+
+        .title {
+            font-size: 2em;
+            color: red;
+            margin-bottom: 20px;
+        }
+
+        .album-info {
+            margin-bottom: 20px;
+        }
+        .song-link-button {
+            font-size: 1em;
+            padding: 10px 20px;
+            background-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .song-link-button:hover {
+            background-color: red;
+        }
+
+        .album-cover {
+        max-width: 300px;
+        height: 400px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        display: inline-block;
+        vertical-align: top;
+        }
+
+        .album-cover img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        }
+
+        .album-description {
+            font-size: 1.2em;
+            line-height: 1.6;
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: justify;
+            margin-bottom: 20px;
+            display: inline-block;
+            width: calc(100% - 320px);
+            vertical-align: top;
+        }
+
+        .songs-list {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .song-item {
+            margin: 10px 0;
+        }
+
+        .song-link {
+            text-decoration: none;
+            color: black;
+        }
+
+        .song-name {
+            font-size: 1.5em;
+            color: red;
+        }
+
+        .song-year {
+            font-size: 1.2em;
+            color: black;
+        }
+
+        .songs-title {
+            font-size: 1.5em;
+            color: black;
+            margin-top: 20px;
+        }
+
+
+
+        .remove-song-button {
+            font-size: 1em;
+            padding: 10px 20px;
+            background-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .remove-song-button:hover {
+           background-color: red;
+        }
+
+        .edit-album-button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            background-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .edit-album-button:hover {
+            background-color: red;
+        }
+
+        .login {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .auth-link {
+            color: darkred;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer {
+            background-color: #FF0000;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #ccc;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .menu-item {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin-right: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #f8f8f8;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .menu-item:hover {
+            background-color: #e0e0e0;
+            color: darkred;
+        }
+
+        .menu-item.active {
+            background-color: red;
+            color: white;
+        }
+
+        .menu-item:last-child {
+            margin-right: 0;
+        }
+
+        .menu-content {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .menu-content h2 {
+            font-size: 1.5em;
+            color: red;
+        }
+
+        @media only screen and (max-width: 768px) {
+    .title {
+        font-size: 1.3em;
+    }
+
+    .album-info h2 {
+        font-size: 1em;
+    }
+
+    .album-cover {
+        max-width: 150px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .album-description {
+        width: 100%;
+    }
+
+    .songs-title {
+        font-size: 1em;
+    }
+
+    .song-name {
+        font-size: 1em;
+    }
+
+    .song-year {
+        font-size: 0.8em;
+    }
+
+    .remove-song-button, .edit-album-button, .song-link-button {
+        font-size: 0.8em;
+        padding: 5px 10px;
+        margin-top: 10px;
+    }
+
+    .login {
+        position: static;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .auth-link {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .login p {
+        font-size: 1em;
+    }
+
+    .container {
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    footer {
+        padding: 5px 0;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .title {
+        font-size: 1.2em;
+    }
+
+    .album-info h2 {
+        font-size: 0.9em;
+    }
+
+    .album-cover {
+        max-width: 120px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .album-description {
+        width: 100%;
+    }
+
+    .songs-title {
+        font-size: 0.9em;
+    }
+
+    .song-name {
+        font-size: 0.9em;
+    }
+
+    .song-year {
+        font-size: 0.7em;
+    }
+
+    .remove-song-button, .edit-album-button, .song-link-button {
+        font-size: 0.7em;
+        padding: 4px 8px;
+        margin-top: 10px;
+    }
+
+    .login {
+        position: static;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .auth-link {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .login p {
+        font-size: 1em;
+    }
+
+    .container {
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    footer {
+        padding: 5px 0;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <a href="{% url 'bandas:bandas' %}" class="menu-item">Bandas</a>
+            <a href="{% url 'bandas:albuns' %}" class="menu-item">Álbuns</a>
+            <a href="{% url 'bandas:musicas' %}" class="menu-item">Músicas</a>
+        </div>
+        <h1 class="title">{{ album.nome }}</h1>
+        <div class="album-info">
+            <h2>Ano de Lançamento: {{ album.ano }}</h2>
+            <span>Banda: <a href="{% url 'bandas:banda_detalhes' banda_nome=album.banda.nome|slugify %}" class="song-link" style="color: red;">{{ album.banda.nome }}</a></span>
+        </div>
+        <div class="album-cover">
+            <img src="{{ album.capa.url }}" alt="{{ album.nome }}">
+        </div>
+        <div class="album-description">
+            <h3>Descrição:</h3>
+            <p>{{ album.descricao }}</p>
+        </div>
+        <h3 class="songs-title">Músicas:</h3>
+        <ul class="songs-list">
+            {% for musica in musicas %}
+            <li class="song-item">
+                <a href="{% url 'bandas:musica_detalhes' musica_nome=musica.nome %}" class="song-link">
+                    <span class="song-name">{{ musica.nome }}</span>
+                    <span class="song-year">({{ musica.ano }})</span>
+                </a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'bandas:remover_musica' banda_nome=album.banda.nome album_nome=album.nome musica_nome=musica.nome %}" class="remove-song-button">Remover</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'bandas:banda_detalhes' banda_nome=album.banda.nome %}" class="song-link-button">Voltar para a Banda</a>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'bandas:editar_album' banda_nome=album.banda.nome album_nome=album.nome %}" class="song-link-button">Editar Álbum</a>
+            <a href="{% url 'bandas:nova_musica' banda_nome=album.banda.nome album_nome=album.nome %}" class="song-link-button">Adicionar Música</a>
+        {% endif %}
+        <div class="login">
+            {% if user.is_authenticated %}
+                <div class="login">
+                    <p>Logado como {{ user.username }}</p>
+                    <a href="{% url 'bandas:logout' %}?next={{ request.path }}" class="auth-link">Logout</a>
+                </div>
+            {% else %}
+                <div class="login">
+                    <p><a href="{% url 'bandas:login' %}" class="auth-link">Login</a>para continuar</p>
+                </div>
+                <div class="register">
+                    <p><a href="{% url 'bandas:registro' %}" class="auth-link">Registre-se</a>se ainda não tiver uma conta</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <footer>
+        <p>2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

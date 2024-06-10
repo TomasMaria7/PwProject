@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Previsão do Tempo para os Próximos 5 Dias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 100px;
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+        strong {
+            font-weight: bold;
+        }
+        img {
+            display: block;
+            margin: 10px auto;
+            max-width: 100%;
+            height: auto;
+        }
+        .back-button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-button a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #ccc;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Previsão do Tempo para os Próximos 5 Dias em {{ nome_cidade }}</h1>
+        <ul>
+            {% for previsao in lista_previsoes %}
+                <li>
+                    <strong>Data:</strong> {{ previsao.data }}<br>
+                    <strong>Temperatura Mínima:</strong> {{ previsao.temp_min }}°C<br>
+                    <strong>Temperatura Máxima:</strong> {{ previsao.temp_max }}°C<br>
+                    <strong>Descrição:</strong> {{ previsao.descricao_clima }}<br>
+                    <img src="{{ previsao.icone_clima }}" alt="Ícone do Tempo">
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="back-button">
+            <<a href="{% url 'meteo:pagina_inicial' %}">Voltar à Página Inicial</a>
+        </div>
+    </div>
+    <footer>
+        <p>2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

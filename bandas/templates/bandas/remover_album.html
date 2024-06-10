@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remover Álbum</title>
+</head>
+<body>
+    <h1>Remover Álbum</h1>
+    <p>Tem certeza que deseja remover o álbum "{{ album.nome }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sim, Remover</button>
+    </form>
+</body>
+</html>

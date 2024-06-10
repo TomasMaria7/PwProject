@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Cursos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            margin-bottom: 100px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        .add-course-button {
+            display: block;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-course-button:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        .remove-course-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .remove-course-button:hover {
+            background-color: #0056b3;
+        }
+
+        .auth-menu {
+            position: absolute;
+            top: 20px;
+            right: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-link {
+            color: #007bff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        strong {
+            font-weight: bold;
+        }
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        @media only screen and (max-width: 768px) {
+    .auth-menu {
+        position: static;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .login,
+    .logout {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .auth-link {
+        display: inline-block;
+        margin: 0 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .container {
+        max-width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    li {
+        font-size: 1em;
+    }
+
+    .add-course-button {
+        font-size: 0.8em;
+        padding: 8px 16px;
+    }
+
+    .remove-course-button {
+        font-size: 0.7em;
+        padding: 4px 8px;
+    }
+
+    footer {
+        padding: 8px 0;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="auth-menu">
+        {% if user.is_authenticated %}
+            <div class="login">
+                <p>Logado como {{ user.username }}</p>
+            </div>
+            <div class="logout">
+                <p><a href="{% url 'curso:logout' %}" class="auth-link">Logout</a></p>
+            </div>
+        {% else %}
+            <div class="login">
+                <div class="register">
+                    <p><a href="{% url 'curso:registro' %}" class="auth-link">Registre-se</a> se ainda não tiver uma conta</p>
+                </div>
+                <p><a href="{% url 'curso:login' %}" class="auth-link">Login</a> para continuar</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="container">
+        <h1>Lista de Cursos</h1>
+        <ul>
+            {% for curso in cursos %}
+                <li>
+                    <a href="{% url 'curso:detalhes_curso' curso.nome %}" class="course-link">{{ curso.nome }}</a>
+                    <form method="post" action="{% url 'curso:remover_curso' curso.nome %}" style="display: inline;">
+                        {% csrf_token %}
+                        {% if user.is_authenticated %}
+                            <button type="submit" class="remove-course-button" onclick="return confirm('Tem certeza que deseja remover este curso?')">Remover</button>
+                        {% endif %}
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        {% if user.is_authenticated %}
+            <a href="{% url 'curso:adicionar_curso' %}" class="add-course-button">Adicionar Curso</a>
+        {% endif %}
+    </div>
+    <footer>
+        <p>2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

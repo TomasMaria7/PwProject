@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ curso.nome }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            margin-bottom: 2000px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .delete-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            position: absolute;
+            right: 90px;
+        }
+
+        .delete-button:hover {
+            background-color: #0056b3;
+        }
+        .auth-menu {
+            position: absolute;
+            top: 20px;
+            right: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-link {
+            color: #007bff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 0px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 768px) {
+    .auth-menu {
+        position: static;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .login,
+    .logout {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .auth-link {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    .container {
+        max-width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 30px;
+    }
+
+    p {
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        font-size: 0.9em;
+    }
+
+    .button {
+        font-size: 0.9em;
+        padding: 8px 16px;
+        margin-bottom: 10px;
+    }
+
+    .delete-button {
+        font-size: 0.8em;
+        padding: 5px 10px;
+        right: auto;
+        position: static;
+        margin-right: 10px;
+    }
+
+    footer {
+        padding: 8px 0;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .auth-menu {
+        top: auto;
+        right: auto;
+        position: static;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 0.8em;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        font-size: 0.8em;
+    }
+
+    .button {
+        font-size: 0.8em;
+        padding: 6px 12px;
+        margin-bottom: 10px;
+    }
+
+    .delete-button {
+        font-size: 0.7em;
+        padding: 4px 8px;
+        margin-right: 5px;
+    }
+
+    footer {
+        padding: 5px 0;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="auth-menu">
+        {% if user.is_authenticated %}
+            <div class="login">
+                <p>Logado como {{ user.username }}</p>
+            </div>
+            <div class="logout">
+                <p><a href="{% url 'curso:logout' %}" class="auth-link">Logout</a></p>
+            </div>
+        {% else %}
+            <div class="login">
+                <div class="register">
+                    <p><a href="{% url 'curso:registro' %}" class="auth-link">Registre-se</a> se ainda não tiver uma conta</p>
+                </div>
+                <p><a href="{% url 'curso:login' %}" class="auth-link">Login</a> para continuar</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="container">
+        <h1 style="margin-bottom: 50px;">{{ curso.nome }}</h1>
+        <p><strong>Apresentação:</strong> {{ curso.apresentacao }}</p>
+        <p><strong>Objetivos:</strong> {{ curso.objetivos }}</p>
+        <p><strong>Competências:</strong> {{ curso.competencias }}</p>
+
+        <h2>Disciplinas</h2>
+        <ul>
+            {% for disciplina in curso.disciplinas.all %}
+                <li>
+                    <form method="post" action="{% url 'curso:remover_disciplina' curso_nome=curso.nome disciplina_nome=disciplina.nome %}">
+                        {% csrf_token %}
+                        {% if user.is_authenticated %}
+                        <button type="submit" class="button delete-button">Remover Disciplina</button>
+                        {% endif %}
+                    </form>
+                    <a href="{% url 'curso:detalhes_disciplina' disciplina_nome=disciplina.nome %}" class="button">{{ disciplina.nome }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'curso:lista_cursos' %}" class="button">Página Inicial</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'curso:editar_curso' curso.nome %}" class="button edit-button">Editar Curso</a>
+        <a href="{% url 'curso:adicionar_disciplina' curso.nome %}" class="button add-discipline-button">Adicionar Disciplina</a>
+        {% endif %}
+    </div>
+    <footer>
+        <p>2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
