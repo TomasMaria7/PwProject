@@ -30,10 +30,11 @@
             margin: 0;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         header nav ul li {
-            margin: 0 15px;
+            margin: 5px 15px;
         }
 
         header nav ul li a {
@@ -69,6 +70,21 @@
         .container img {
             border-radius: 50%;
             margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .weather-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .weather-container img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
         }
 
         footer {
@@ -76,8 +92,7 @@
             color: white;
             text-align: center;
             padding: 10px 0;
-            position: absolute;
-            bottom: 0;
+            position: relative;
             width: 100%;
         }
 
@@ -99,6 +114,7 @@
             font-size: 1.2em;
             color: white;
         }
+
         @media (max-width: 768px) {
             .container h1 {
                 font-size: 2em;
@@ -180,8 +196,12 @@
         <h1>Tomás Maria</h1>
         <h2>Desenvolvedor de Software</h2>
         <div id="dateTimeDisplay"></div>
-        <img src="/static/portfolio/cara.jpeg" alt="Minha Foto" width="200" height="200">
+        <img src="/static/portfolio/cara.jpeg" alt="Minha Foto" width="220" height="200">
         <p>Olá! Eu sou Tomás Maria, um desenvolvedor de Software apaixonado por criar soluções inovadoras. Tenho experiência em várias tecnologias e estou sempre à procura de aprender mais e encontrar novos projetos. Bem-vindo ao meu portfólio online!</p>
+        <div class="weather-container">
+            <img id="weather-icon" src="" alt="Weather Icon">
+            <span>Lisboa</span>
+        </div>
     </div>
     <footer>
         &copy; 2024 Tomás Maria, Universidade Lusófona - Todos os direitos reservados.
@@ -203,6 +223,37 @@
 
         setInterval(updateDateTime, 1000);
         updateDateTime();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const api_url = "http://a22206963.pythonanywhere.com/meteo/api/previsao_hoje/1110600/";
+            
+            const staticBaseUrl = "/static/";
+
+            
+            function fetchWeatherIcon() {
+                fetch(api_url)
+                .then(response => response.json())
+                .then(data => {
+                    const idWeatherType = data.idWeatherType;
+
+                    let iconSrc = '';
+                    if (idWeatherType < 10) {
+                        iconSrc = `/static/meteo/w_ic_d_0${idWeatherType}anim.svg`;
+                    } else {
+                        iconSrc = `/static/meteo/w_ic_d_${idWeatherType}anim.svg`;
+                    }
+
+                    
+                    document.getElementById('weather-icon').src = iconSrc;
+                })
+                .catch(error => console.error('Erro ao buscar dados do tempo:', error));
+            }
+
+            
+            fetchWeatherIcon();
+        });
     </script>
 </body>
 </html>
